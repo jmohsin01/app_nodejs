@@ -1,10 +1,14 @@
-const express = require('express')
-const os = require('os')
+var express = require('express');
+var app = express();
 
-const app = express()
-app.get('/', (req, res) => {
-	        res.send(`Hi from ${os.hostname()}!`)
-})
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
 
-const port = 3000
-app.listen(port, () => console.log(`listening on port ${port}`))
+app.get('/about', function (req, res) {
+	res.send('About Us!');
+  });
+
+app.listen(3000, function () {
+  console.log('Listening to Port 3000');
+});
